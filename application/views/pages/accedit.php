@@ -19,25 +19,22 @@
 </head>
 <body>  
     <div class="form bg ">
+        <div class="adminbox ">
+            <div class="mb-3">
+            <h2 style="color:#6495ED;text-align:center"><b>Account View/Edit<b><h2>
+            </div>
 
-        <form method="post" class="adminbox col-8 mt-5" action="<?php echo base_url('logins/login'); ?>">
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Name" name="name">
+            </div>
+            
+            <div class="mb-3 input-group">
+                <input type="text" class="form-control" placeholder="Password" name="pass">
+            </div>
 
-                <div class="mb-3">
-                <h2 style="color:#6495ED;text-align:center"><b>Login<b><h2>
-                </div>
-
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Enter Username" name="name" required>
-                </div>
-
-                <div class="mb-3">
-                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
-                </div>
-
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-custom" name="LOGIN" >Login</button>
-                    <img src="<?php echo base_url('/assets/images/create_event.png')?>" width="138" height="130" >
-                </div>
-        </form>
-        
+            <div class="mb-3">
+                <button type="submit" class="btn btn-login" name="Cancel" >Cancel</button>
+                <button type="submit" class="btn btn-login" name="Save" >SAVE</button>
+            </div>
+        </div>
     </div>
