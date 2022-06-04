@@ -3,13 +3,16 @@
 
   html {
     scroll-behavior: smooth;
+    margin: 0;
+    height: 100%;
+    /* overflow: hidden; */
   }
   body {
     margin: 0;
     display: grid;
     grid-template-columns: min-content 1fr;
     font-family: 'Poppins', sans-serif;
-    
+    background-color: #DBE2EF;
     /* this breaks position sticky in Firefox */
     /* overflow-x: hidden; */
   }
@@ -27,7 +30,9 @@
   @media (min-height: 300px) {
     nav ul {
       position: sticky;
-      top: 0;
+      top: 0px;
+      
+      
     }
   }
   nav ul li a {
@@ -51,13 +56,48 @@
 
   .box {
     background-color: var(--secondary-background-color);
-    
+    position:absolute;
+    top:7rem;
+    right:3rem;
+    width:70%;
+    height: auto;
+
     border-radius: 15px;
     box-shadow: 2px 5px;
     text-align: center;
-
+    overflow-y:visible;
     
     margin-top: 15rem;
     margin-left: 4rem;
 }
-  
+.box .patientheader .patientitem{
+    color:white;
+    display: inline-block;
+    font-size:24px;
+    padding:0;
+    margin:0;
+    line-height: 14px;
+    padding: 10px 90px;
+    overflow-y:visible;
+}
+/* .patientlists{
+    overflow:hidden; overflow-y:scroll;
+} */
+.patientlists .patientnames{
+    color:white;
+    display: inline-block;
+    font-size:14px;
+    padding:0;
+    margin:0;
+    line-height: 14px;
+    padding: 20px 106px;
+    overflow-y:visible;
+}
+
+.patientlists .personview{
+    background-color: #F08A5E;
+    color:white;
+    padding:6px;
+    border-radius: 12px;
+    overflow-y:visible;
+}

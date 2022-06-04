@@ -39,7 +39,15 @@
                 <a href="#" class="list-link screen-sm-hidden">Records</a>
                 <a href="#" class="list-link screen-sm-hidden">Create Event</a>
                 <a href="#" class="list-link screen-sm-hidden">Profile</a>
-                <a href="<?php echo base_url('login'); ?>" class="list-link screen-sm-hidden">Login</a>
+
+                <?php $user = $this->session->userdata('user');
+                if(isset($user) && $user!=null):?>
+                    <a href="<?php echo base_url('logouts/logout'); ?>" class="list-link screen-sm-hidden">Logout</a>
+
+                <?php else:?>
+                    <a href="<?php echo base_url('admin'); ?>" class="list-link screen-sm-hidden">Login</a>
+
+                <?php endif; ?>
 
             </div>
 

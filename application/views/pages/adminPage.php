@@ -21,40 +21,71 @@
 </nav>
 
 <main>
+<section style="margin-top:1rem; text-align:center; justify-content:center; color:#6495ED" id="section-1"> <br><br>
+    <h1>Patients Record Data</h1>
+</section>
 <div class="box col-8 mt-5">
-
-    <div class="mb-3">
-        Login
+    <div class="patientheader">
+        <ul class="patientitem">Name</ul>
+        <ul class="patientitem">Health Case</ul>
+        <ul class="patientitem">Date of Case</ul>
     </div>
 
-    <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Enter Username" name="name" required>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
     </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
 
-    <div class="mb-3">
-        <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
     </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
 
-    <div class="mb-3">
-        <button type="submit" class="btn btn-custom" name="LOGIN" >Login</button>
-        <img src="<?php echo base_url('/assets/images/create_event.png')?>" width="138" height="130" >
     </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
+    </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
+    </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
+    </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
+    </div>
+    <div class="patientlists">
+        <li class="patientnames">1.) Name</li>
+        <li class="patientnames">Health Case</li>
+        <li class="patientnames">Date of Case</li>
+        <button class="personview">view</view>
+    </div>
+    
 </div>
 
-  <section id="section-1"> <br><br>
-    <h1>Section 1</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, blanditiis expedita? Earum eligendi pariatur quaerat quos expedita ab quibusdam ratione veniam in, mollitia fuga repudiandae?</p>
-  </section>
-  <section id="section-2">
-    <h1>Section 2</h1>
-    <p>Ratione nulla nam, ipsa dignissimos corrupti veniam nostrum, laudantium asperiores sequi numquam placeat velit voluptate in praesentium non labore unde incidunt laborum maxime quae magni.</p>
-  </section>
+  
 </main>
-
-<footer>
-  &copy;2018 Footer
-</footer>
-
 
 <!-- <div style="height: 100vh;"class="container-fluid"> -->
     <!-- <div class="row"> -->
