@@ -1,1 +1,0 @@
-tahimik si mark

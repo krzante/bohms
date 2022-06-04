@@ -1,0 +1,87 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    font-family: 'Poppins', sans-serif;
+    
+    /* this breaks position sticky in Firefox */
+    /* overflow-x: hidden; */
+  }
+  nav {
+    white-space: nowrap;
+    padding:3.5rem;
+    background: #4073AF;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* Only stick if you can fit */
+  @media (min-height: 300px) {
+    nav ul {
+      position: sticky;
+      top: 0;
+    }
+  }
+  nav ul li a {
+    margin-top: 2rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  /*  */
+  nav ul label{
+    padding: 0rem 1rem 0.5rem 1rem;
+  }
+
+  nav ul h4{
+      padding-top: 2rem;
+      color: #DBE2EF;
+  }
+
+  nav ul h5{
+      color: #DBE2EF;
+  }
+
+  nav ul li a.current {
+    background: black;
+  }
+  main {
+    padding-bottom: 40rem;
+  }
+  section {
+    padding: 2rem;
+    margin: 0 0 2rem 0;
+  }
+
+.box {
+    background-color: var(--secondary-background-color);
+
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+
+
+    margin-top: 15rem;
+    margin-left: 4rem;
+}
+
+.event-card{
+    background: #DBE2EF;
+}
+
+.google-maps-img {
+    height: 100%;
+}
+
+  

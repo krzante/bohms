@@ -16,14 +16,16 @@
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/swiper-bundle.min.css')?>" />
         <!-- Custom styles -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
+        <!-- Google Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <!-- Header -->
     <header class="header" id="header">
 
-        <nav class="navbar container">
+        <nav class="navbar container ">
            
-            <a href="<?php echo base_url('dashboard')?>">              
+            <a href="<?php echo base_url('home')?>">              
                 <h2 class="logo">BOHMS</h2>
             </a>
 
@@ -34,10 +36,19 @@
                     <i class="ri-close-line close-menu-icon"></i>
                 </button>
 
+                <?php $user = $this->session->userdata('user');
+                if(isset($user) && $user!=null):?>
+                
                 <a href="#" class="list-link screen-sm-hidden">Records</a>
-                <a href="#" class="list-link screen-sm-hidden">Create Event</a>
+                <a href="<?php echo base_url('create_event')?>" class="list-link screen-sm-hidden">Create Event</a>
                 <a href="#" class="list-link screen-sm-hidden">Profile</a>
-                <a href="<?php echo base_url('login'); ?>" class="list-link screen-sm-hidden">Login</a>
+
+                    <a href="<?php echo base_url('logouts/logout'); ?>" class="list-link screen-sm-hidden">Logout</a>
+
+                <?php else:?>
+                    <a href="<?php echo base_url('admin'); ?>" class="list-link screen-sm-hidden">Login</a>
+
+                <?php endif; ?>
 
             </div>
 

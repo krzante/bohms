@@ -6,10 +6,10 @@
     --light-color: #FFFFFF;
     --light-color-alt: #afb6cd;
     --primary-background-color: #D9D9D9;
-    --secondary-background-color: #685bb3;
+    --secondary-background-color: #4073AF;
     --hover-light-color: var(--light-color);
     --hover-dark-color: var(--primary-background-color);
-    --gradient-color: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+    --gradient-color: linear-gradient(115deg, #4fcf70, #fad648, #4073AF, #12bcfe, #44ce7b);
     --transparent-light-color: rgba(255, 255, 255, .05);
     --transparent-dark-color: rgba(0, 0, 0, .75);
     --font-family: 'Poppins', sans-serif;
@@ -32,7 +32,7 @@
     box-sizing: border-box;
 }
 
-html {
+/* html {
     font-size: 62.5%;
 }
 
@@ -48,7 +48,7 @@ body {
 
 body> :not(header):not(footer) {
     margin: 5em;
-}
+} */
 
 a {
     color: inherit;
@@ -303,6 +303,8 @@ body.light-theme {
 /*for Forgot Password*/
 .box {
     background-color: var(--secondary-background-color);
+    position:absolute;
+    top:4rem;
     padding: 2rem 4rem;
     border-radius: 15px;
     box-shadow: 2px 5px;
@@ -317,6 +319,21 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: center;
     width: 35%;
+    position:absolute;
+    top:100px;
+    
+}
+
+.patientbox {
+    background-color: var(--secondary-background-color);
+    padding: 2rem 4rem;
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+    width: 55%;
+    position:absolute;
+    top:200px;
+    
 }
 
 

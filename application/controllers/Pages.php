@@ -13,4 +13,9 @@
             $this->load->view('pages/'.$page);
             $this->load->view('templates/footer');
         }
+        public function admindashboard(){
+            $this->load->view('templates/header');
+            $this->load->view('pages/adminPage');
+            $this->load->view('templates/footer');
+        }
     }
