@@ -26,8 +26,8 @@ class Logins extends CI_Controller{
                 redirect('/dashboard');
             }
         }
-		// $this->load->view('templates/header');
-        // $this->load->view('pages/login');
-        // $this->load->view('templates/footer');
+		$this->load->view('templates/header');
+        $this->load->view('pages/admin');
+        $this->load->view('templates/footer');
 	}
 }
