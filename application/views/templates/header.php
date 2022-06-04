@@ -25,7 +25,7 @@
 
         <nav class="navbar container ">
            
-            <a href="<?php echo base_url('dashboard')?>">              
+            <a href="<?php echo base_url('home')?>">              
                 <h2 class="logo">BOHMS</h2>
             </a>
 
@@ -36,12 +36,13 @@
                     <i class="ri-close-line close-menu-icon"></i>
                 </button>
 
-                <a href="#" class="list-link screen-sm-hidden">Records</a>
-                <a href="#" class="list-link screen-sm-hidden">Create Event</a>
-                <a href="#" class="list-link screen-sm-hidden">Profile</a>
-
                 <?php $user = $this->session->userdata('user');
                 if(isset($user) && $user!=null):?>
+                
+                <a href="#" class="list-link screen-sm-hidden">Records</a>
+                <a href="<?php echo base_url('create_event')?>" class="list-link screen-sm-hidden">Create Event</a>
+                <a href="#" class="list-link screen-sm-hidden">Profile</a>
+
                     <a href="<?php echo base_url('logouts/logout'); ?>" class="list-link screen-sm-hidden">Logout</a>
 
                 <?php else:?>

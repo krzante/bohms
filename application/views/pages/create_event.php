@@ -18,32 +18,36 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
 </head>
 <body>  
-    <div class="form bg ">
-        <div class="box ">
+
+    <form method="post" class="form bg mt-5" action="<?php echo base_url('create_events/create'); ?>">
+        <div class="box mt-5">
             <div class="mb-3">
-                New Baranggay Event
+                <h1><b>New Baranggay Event<b></h1>
+               <img src="<?php echo base_url('/assets/images/Bohmsv1.png')?>" width="100" height="100">
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Event Name" name="name">
+                <input type="text" class="form-control" placeholder="event_name" name="event_name">
             </div>
             
             <div class="mb-3 input-group">
-                <input type="text" class="p-5 form-control" placeholder="Event Description" name="description">
+                <input type="text" class="p-5 form-control" placeholder="event_description" name="event_description">
             </div>
 
-            <div class="mb-3 input-group">
-                <input type="text" class="form-control" placeholder="Event Date" name="date">
-            </div>
+            <!-- <div class="mb-3 input-group">
+                <input type="text" class="form-control" placeholder="event_date" name="date">
+            </div> -->
 
             <div class="mb-3 input-group">
-                <input type="text" class="form-control" placeholder="Event Location" name="location">
-                <button type="submit" class="btn btn-custom" name="Set" >Set</button>
+                <input type="text" class="form-control" placeholder="event_location" name="event_location">
+                <button type="button" class="btn btn-custom" name="Set" >Set</button>
             </div>
+
+            <?php echo validation_errors(); ?>
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-custom" name="Create" >Create</button>
                 <img src="<?php echo base_url('/assets/images/create_event.png')?>" width="138" height="130" >
             </div>
         </div>
-    </div>
+    </form>

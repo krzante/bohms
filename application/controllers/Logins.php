@@ -8,11 +8,12 @@ class Logins extends CI_Controller{
         $user = $this->session->userdata('user');
         
         if(isset($user) && $user!=null){
-            redirect('/dashboard');
+            redirect('/home');
         }
 	}
 	
     public function login(){
+
         $data = $this->input->post();
 
         if(count($data) > 0){
@@ -23,7 +24,7 @@ class Logins extends CI_Controller{
                 $session['user'] = $result;
                 $this->session->set_userdata($session);
                 
-                redirect('/dashboard');
+                redirect('/home');
             }
         }
 		$this->load->view('templates/header');
