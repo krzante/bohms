@@ -26,21 +26,14 @@
             <a href="<?php echo base_url('dashboard')?>">              
                 <h2 class="logo">BOHMS</h2>
             </a>
+            <ul class="nav-item ms-auto">
+                <a style="text-decoration:none" class="navbar-nav ml-auto m-2">Records</a>
+                <a style="text-decoration:none" class="navbar-nav ml-auto m-2">Create Event</a>
+                <a style="text-decoration:none" class="navbar-nav ml-auto m-2">Profile</a>
+            </ul>
+       
 
-            <div class="list list-right">
-
-                <button class="btn place-items-center screen-lg-hidden menu-toggle-icon" id="menu-toggle-icon">
-                    <i class="ri-menu-3-line open-menu-icon"></i>
-                    <i class="ri-close-line close-menu-icon"></i>
-                </button>
-
-                <a href="#" class="list-link screen-sm-hidden">Records</a>
-                <a href="#" class="list-link screen-sm-hidden">Create Event</a>
-                <a href="#" class="list-link screen-sm-hidden">Profile</a>
-
-            </div>
-
+            
         </nav>
 
     </header>
-<body>
