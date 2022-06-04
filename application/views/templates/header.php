@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/swiper-bundle.min.css')?>" />
         <!-- Custom styles -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
+        <!-- Google Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <!-- Header -->
