@@ -37,6 +37,7 @@
                 <a href="#" class="list-link screen-sm-hidden">Records</a>
                 <a href="#" class="list-link screen-sm-hidden">Create Event</a>
                 <a href="#" class="list-link screen-sm-hidden">Profile</a>
+                <a href="<?php echo base_url('login'); ?>" class="list-link screen-sm-hidden">Login</a>
 
             </div>
 
