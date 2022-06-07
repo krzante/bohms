@@ -10,7 +10,9 @@
                 show_404();
             }
             $this->load->view('templates/header');
-            $this->load->view('pages/'.$page);
+            $data['title'] = 'Latest Events';
+            $data['baranggay_event'] = $this -> home_model -> get_events();
+            $this->load->view('pages/'.$page, $data);
             $this->load->view('templates/footer');
         }
         public function admindashboard(){
@@ -18,4 +20,5 @@
             $this->load->view('pages/adminPage');
             $this->load->view('templates/footer');
         }
+
     }
