@@ -18,32 +18,17 @@
             <h4 >Barangay</h4>
             <h5 >Announcements</h5>
             <div class="annoucements">
+                <?php foreach($baranggay_event as $data) : ?>
                 <div class="event-card">
-                    <li><a href="#">Monkeypox</a></li>
-                    <label>Short description</label><br>
-                    <label>12/31/0000</label>
+                        <li><a href="#"><?php echo $data['event_name']; ?></a></li>
+                        <label><?php echo $data['event_description']; ?></label><br>
+                        <label><?php echo $data['event_location'] ?></label>
                 </div>
+                <?php endforeach; ?>    
                 
-                <div class="event-card">
-                    <li><a href="#">Covid Vaccination</a></li>
-                    <label>Short description</label><br>
-                    <label>12/31/0000</label>
-                </div>
-
-                <div class="event-card">
-                    <li><a href="#">Feeding Program</a></li>
-                    <label>Short description</label><br>
-                    <label>12/31/0000</label>
-                </div>
-
-                <div class="event-card">
-                    <li><a href="#">Aljon Symposium</a></li>
-                    <label>Short description</label><br>
-                    <label>12/31/0000</label>
-                </div>
             </div>
             <img src="<?php echo base_url('/assets/images/girl_with_megaphone.png')?>" >
         </ul>
     </nav>
 
-    <img class="google-maps-img" src="<?php echo base_url('/assets/images/google_maps_placeholder.png')?>">
+    <img class="google-maps-img" src="<?php echo base_url('/assets/images/google_maps_placeholder.png') ?>"> 
