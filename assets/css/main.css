@@ -336,6 +336,21 @@ body.light-theme {
     
 }
 
+.castoria-box {
+    background-color: var(--secondary-background-color);
+    padding: 2rem 4rem;
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+    width: 50%;
+    position:absolute;
+    top:180px;
+    
+}
+
+
+
+
 
 .login {
     max-width: 100px;

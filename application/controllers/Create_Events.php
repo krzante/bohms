@@ -10,7 +10,17 @@ class Create_Events extends CI_Controller{
         // if(isset($user) && $user!=null){
         //     redirect('/home');
         // }
+        }
+
+	public function view($id){
+		$data['baranggay_event']-> $this->createevent_model->get_specific_event($id);  
+        var_dump($data);
+        exit();
+		$this->load->view('templates/header');
+        $this->load->view('pages/showevents', $data);
+        $this->load->view('templates/footer');
 	}
+
 	
     public function create(){
 
@@ -34,3 +44,5 @@ class Create_Events extends CI_Controller{
         $this->load->view('templates/footer');
 	}
 }
+
+
