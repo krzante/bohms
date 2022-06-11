@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2022 at 08:44 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Jun 11, 2022 at 01:40 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,8 @@ CREATE TABLE `baranggay_event` (
   `event_name` varchar(255) NOT NULL,
   `event_description` varchar(255) NOT NULL,
   `event_date` datetime DEFAULT NULL,
-  `event_location` varchar(255) NOT NULL,
+  `event_lat` varchar(255) NOT NULL,
+  `event_lng` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,13 +42,15 @@ CREATE TABLE `baranggay_event` (
 -- Dumping data for table `baranggay_event`
 --
 
-INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_location`, `date_created`) VALUES
-(2, 1, 'COVID-19', 'Bakuna yay', NULL, 'Pasay', '2022-06-11 14:40:04'),
-(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, 'Mondstat', '2022-06-11 14:40:04'),
-(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, 'Bahay ni Mark', '2022-06-11 14:40:04'),
-(7, 2, 'Castoria', 'roll roll roll', NULL, 'Chaldea', '2022-06-11 14:40:04'),
-(9, 2, 'TESTESTSETSESTSET', 'TESTESTSETSESTSET', NULL, 'TESTESTSETSESTSET', '2022-06-11 14:40:04'),
-(10, 2, 'asdasd', 'asdasd', NULL, 'adasda', '2022-06-11 14:40:47');
+INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_lat`, `event_lng`, `date_created`) VALUES
+(2, 1, 'COVID-19', 'Bakuna yay', NULL, '', '', '2022-06-11 14:40:04'),
+(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, '', '', '2022-06-11 14:40:04'),
+(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, '', '', '2022-06-11 14:40:04'),
+(7, 2, 'Castoria', 'roll roll roll', NULL, '', '', '2022-06-11 14:40:04'),
+(9, 2, 'TESTESTSETSESTSET', 'TESTESTSETSESTSET', NULL, '', '', '2022-06-11 14:40:04'),
+(10, 2, 'asdasd', 'asdasd', NULL, '', '', '2022-06-11 14:40:47'),
+(13, 2, 'Bakuna Drive', 'bakuna lpara sa rabies ', '2022-06-06 07:30:00', '14.710385363390431', '121.04692504591061', '2022-06-11 17:18:37'),
+(14, 2, 'Bugbugin si Chard', 'Free for all suntok kay chard', '2022-06-14 20:53:00', '14.712087211567312', '121.04804084486081', '2022-06-11 18:52:09');
 
 -- --------------------------------------------------------
 
@@ -115,15 +118,12 @@ ALTER TABLE `baranggay_event`
   ADD PRIMARY KEY (`id`);
 
 --
-<<<<<<< HEAD
-=======
 -- Indexes for table `patient_records`
 --
 ALTER TABLE `patient_records`
   ADD PRIMARY KEY (`id`);
 
 --
->>>>>>> 9e6796622239cbbe3f8f0926f03513852eaa559b
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -138,17 +138,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay_event`
 --
 ALTER TABLE `baranggay_event`
-<<<<<<< HEAD
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-=======
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `patient_records`
 --
 ALTER TABLE `patient_records`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
->>>>>>> 9e6796622239cbbe3f8f0926f03513852eaa559b
 
 --
 -- AUTO_INCREMENT for table `user`
