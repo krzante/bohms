@@ -39,9 +39,9 @@
                 <?php $user = $this->session->userdata('user');
                 if(isset($user) && $user!=null):?>
                 
-                <a href="#" class="list-link screen-sm-hidden">Records</a>
+                <a href="<?php echo base_url('adminpage'); ?>" class="list-link screen-sm-hidden">Records</a>
                 <a href="<?php echo base_url('create_event')?>" class="list-link screen-sm-hidden">Create Event</a>
-                <a href="#" class="list-link screen-sm-hidden">Profile</a>
+                <a href="<?php echo base_url('create_patient_record')?>" class="list-link screen-sm-hidden">Create Patient Record</a>
 
                     <a href="<?php echo base_url('logouts/logout'); ?>" class="list-link screen-sm-hidden">Logout</a>
 

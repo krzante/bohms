@@ -18,12 +18,14 @@
             <h4 >Barangay</h4>
             <h5 >Announcements</h5>
             <div class="annoucements">
-                <?php foreach($baranggay_event as $data) : ?>
+                <?php $i = 0;
+                 foreach($baranggay_event as $data) : ?>
                 <div class="event-card">
                         <li><a href="#"><?php echo $data['event_name']; ?></a></li>
                         <label><?php echo $data['event_description']; ?></label><br>
                         <label><?php echo $data['event_location'] ?></label>
                 </div>
+                <?php if (++$i == 4) break; ?>
                 <?php endforeach; ?>    
                 
             </div>

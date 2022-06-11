@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2022 at 10:26 AM
+-- Generation Time: Jun 11, 2022 at 08:44 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -33,18 +33,47 @@ CREATE TABLE `baranggay_event` (
   `event_name` varchar(255) NOT NULL,
   `event_description` varchar(255) NOT NULL,
   `event_date` datetime DEFAULT NULL,
-  `event_location` varchar(255) NOT NULL
+  `event_location` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `baranggay_event`
 --
 
-INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_location`) VALUES
-(2, 1, 'COVID-19', 'Bakuna yay', NULL, 'Pasay'),
-(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, 'Mondstat'),
-(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, 'Bahay ni Mark'),
-(7, 2, 'Castoria', 'roll roll roll', NULL, 'Chaldea');
+INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_location`, `date_created`) VALUES
+(2, 1, 'COVID-19', 'Bakuna yay', NULL, 'Pasay', '2022-06-11 14:40:04'),
+(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, 'Mondstat', '2022-06-11 14:40:04'),
+(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, 'Bahay ni Mark', '2022-06-11 14:40:04'),
+(7, 2, 'Castoria', 'roll roll roll', NULL, 'Chaldea', '2022-06-11 14:40:04'),
+(9, 2, 'TESTESTSETSESTSET', 'TESTESTSETSESTSET', NULL, 'TESTESTSETSESTSET', '2022-06-11 14:40:04'),
+(10, 2, 'asdasd', 'asdasd', NULL, 'adasda', '2022-06-11 14:40:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient_records`
+--
+
+CREATE TABLE `patient_records` (
+  `id` int(255) NOT NULL,
+  `patient_name` varchar(255) NOT NULL,
+  `birthplace` varchar(255) NOT NULL,
+  `sex` enum('Male','Female') NOT NULL,
+  `birthdate` date NOT NULL,
+  `bloodtype` enum('O Negative','O Positive','A Negative','A Positive','B Negative','B Positive','AB Negative','AB Positive') NOT NULL,
+  `current_health_status` varchar(255) NOT NULL,
+  `medical_history` varchar(255) NOT NULL,
+  `health_case` varchar(255) NOT NULL,
+  `date_of_case` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patient_records`
+--
+
+INSERT INTO `patient_records` (`id`, `patient_name`, `birthplace`, `sex`, `birthdate`, `bloodtype`, `current_health_status`, `medical_history`, `health_case`, `date_of_case`) VALUES
+(2, 'Ramon', 'Baler', 'Female', '2000-01-29', 'B Negative', 'Unknown', 'Widowed', 'Single', '2000-01-29');
 
 -- --------------------------------------------------------
 
@@ -86,6 +115,15 @@ ALTER TABLE `baranggay_event`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
+=======
+-- Indexes for table `patient_records`
+--
+ALTER TABLE `patient_records`
+  ADD PRIMARY KEY (`id`);
+
+--
+>>>>>>> 9e6796622239cbbe3f8f0926f03513852eaa559b
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -100,7 +138,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay_event`
 --
 ALTER TABLE `baranggay_event`
+<<<<<<< HEAD
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+=======
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `patient_records`
+--
+ALTER TABLE `patient_records`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> 9e6796622239cbbe3f8f0926f03513852eaa559b
 
 --
 -- AUTO_INCREMENT for table `user`

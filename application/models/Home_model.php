@@ -10,6 +10,7 @@ class Home_model extends CI_Model{
     public function get_events(){
         $this->db->select('*');
         $this->db->from('baranggay_event');
+        $this->db->order_by('date_created', 'DESC');
         $objQuery = $this->db->get();
         return $objQuery->result_array();
        
