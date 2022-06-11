@@ -24,63 +24,39 @@
 <section style="margin-top:1rem; text-align:center; justify-content:center; color:#6495ED" id="section-1"> <br><br>
     <h1>Patients Record Data</h1>
 </section>
+
 <div class="box col-8 mt-5">
-    <div class="patientheader">
-        <ul class="patientitem">Name</ul>
-        <ul class="patientitem">Health Case</ul>
-        <ul class="patientitem">Date of Case</ul>
-    </div>
+  <div class="container table-responsive-sm">
+    <table class="table text-white table-borderless table-hover ">
 
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Health Case</th>
+        <th>Date of Case</th>
+      </tr>
+    </thead>
 
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
+      <!-- RECORDS -->
+      <?php 
+      $i = 0;
+      foreach($patient_records as $data) :
+      ++$i;
+      ?>
+        <tbody>
+          <tr>
+            <td><?php echo $i.".)                 ";?><?php echo $data['patient_name'];?></td>
+            <td><?php echo $data['health_case'];?></td>
+            <td><?php echo $data['date_of_case'];?></td>
+            <td><a href="<?php echo base_url('edit_patients/index')?>"><button type="button" class="btn btn-primary">View</button></a></td>
+            <td><a href="<?php echo base_url('edit_patients/delete/'. $data['id'])?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
+          </tr>
+        </tbody>
+      <?php endforeach; ?>
+      <!-- /RECORDS -->
+      
+    </table>
+  </div>
     
 </div>
 
