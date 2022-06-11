@@ -15,4 +15,11 @@ class Patient_model extends CI_Model{
         return $objQuery->result_array();
     }
 
+    public function delete_patient($id){
+		// echo $this->db->last_query();
+
+		$this->db->where('id', $id);
+		$this->db->delete('patient_records');
+		return true;
+	}
 }

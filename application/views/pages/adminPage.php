@@ -48,7 +48,8 @@
             <td><?php echo $i.".)                 ";?><?php echo $data['patient_name'];?></td>
             <td><?php echo $data['health_case'];?></td>
             <td><?php echo $data['date_of_case'];?></td>
-            <td><a href="<?php echo base_url('edit_patients/index')?>" class="btn btn primary">View</a></td>
+            <td><a href="<?php echo base_url('edit_patients/index')?>"><button type="button" class="btn btn-primary">View</button></a></td>
+            <td><a href="<?php echo base_url('edit_patients/delete/'. $data['id'])?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
       <?php endforeach; ?>

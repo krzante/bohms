@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
 </head>
 <body>  
-    <div class="form bg ">
+
+
+<form method="post" class="form bg mt-5" action="<?php echo base_url('create_patients/update'); ?>">
     <div class = "patientbox">
             <div class="mb-3">
             <h2 style="color:#6495ED;text-align:center"><b>EDIT PATIENT INFO<b><h2>
@@ -26,39 +28,65 @@
             </div>
             <form>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Patient Name" name="patname">
+                <span>Name of Patient</span>
+                <input type="text" class="form-control" value="<?php echo $patient_records[0]['patient_name'];?>" placeholder="<?php echo $patient_records[0]['patient_name'];?>" name="pat_name">
             </div>
             
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Birthplace" name="bplace">
+                <span>Birthplace</span>
+                <input type="text" class="form-control" value="<?php echo $patient_records[0]['birthplace'];?>" placeholder="<?php echo $patient_records[0]['birthplace'];?>" name="bplace">
             </div>
 
             <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Sex" name="sex">
+                <span>Sex</span>
+                <select class="form-control" value="<?php echo $patient_records[0]['sex'];?>" placeholder="<?php echo $patient_records[0]['sex'];?>" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <!-- <input type="text" class="form-control" placeholder="Sex" name="sex"> -->
             </div>
             
             <div class="row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Birthdate" name="bday">
+                <span>Date of Birth</span>
+                <input type="date" class="form-control" value="<?php echo $patient_records[0]['birthdate'];?>" placeholder="<?php echo $patient_records[0]['birthdate'];?>" name="bday">
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" placeholder="Blood Type">
+                <span>Bloodtype</span>
+                <select class="form-control" value="<?php echo $patient_records[0]['bloodtype'];?>" placeholder="<?php echo $patient_records[0]['bloodtype'];?>" name="btype">
+                    <option value="O Negative">O Negative</option>
+                    <option value="O Positive">O Positive</option>
+                    <option value="A Negative">A Negative</option>
+                    <option value="A Positive">A Positive</option>
+                    <option value="B Negative">B Negative</option>
+                    <option value="B Positive">B Positive</option>
+                    <option value="AB Negative">AB Negative</option>
+                    <option value="AB Positive">AB Positive</option>
+                </select>
+                <!-- <input type="text" class="form-control" placeholder="Blood Type" name="btype"> -->
             </div>
 
             <div class="mt-3">
-                <input type="text" class="p-5 form-control" placeholder="Current Health Status" name="CHS">
+                <span>Current Health Status</span>
+                <input type="text" class="p-5 form-control" value="<?php echo $patient_records[0]['current_health_status'];?>" placeholder="<?php echo $patient_records[0]['current_health_status'];?>" name="CHS">
             </div>
             
             <div class="mt-3">
-                <input type="text" class="p-5 form-control" placeholder="Medical History" name="medhis">
+                <span>Medical History</span>
+                <input type="text" class="p-5 form-control" value="<?php echo $patient_records[0]['medical_history'];?>" placeholder="<?php echo $patient_records[0]['medical_history'];?>" name="medhis">
             </div>
-            </form>
 
+            <input type="hidden" value="<?php echo $patient_records[0]['health_case'];?>" name="hcase">
+            <input type="hidden" value="<?php echo $patient_records[0]['date_of_case'];?>" name="dcase">
+            <input type="hidden" value="<?php echo $patient_records[0]['id'];?>" name="id">
+
+
+            <?php echo validation_errors(); ?>
             <div class="mt-5">
                 <button type="submit" class="btn btn-login" name="Cancel" >Cancel</button>
                 <button type="submit" class="btn btn-login" name="Save" >SAVE</button>
             </div>
         </div>
     </div>
-</div>
+</form>
