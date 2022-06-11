@@ -25,62 +25,41 @@
     <h1>Patients Record Data</h1>
 </section>
 <div class="box col-8 mt-5">
-    <div class="patientheader">
-        <ul class="patientitem">Name</ul>
-        <ul class="patientitem">Health Case</ul>
-        <ul class="patientitem">Date of Case</ul>
-    </div>
-
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
-    <div class="patientlists">
-        <li class="patientnames">1.) Name</li>
-        <li class="patientnames">Health Case</li>
-        <li class="patientnames">Date of Case</li>
-        <button class="personview">view</view>
-    </div>
+  <div class="container table-responsive-sm">
+    <table class="table text-white table-borderless table-hover ">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Health Case</th>
+          <th>Date of Case</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>asdasdadadasds</td>
+          <td>Risingasdasdasdasdasdasdasdasdas</td>
+          <td>Ultimate Power Gearasdasdasdasdasdasdasd</td>
+          <td><button type="button" class="btn btn-primary">View</button></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Garuburn</td>
+          <td>Drive</td>
+          <td>Ultimate Gear</td>
+          <td><button type="button" class="btn btn-primary">View</button></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Dravise</td>
+          <td>Sonic</td>
+          <td>Cyclone Magazine</td>
+          <td><button type="button" class="btn btn-primary">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
     
 </div>
 
