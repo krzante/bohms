@@ -24,40 +24,36 @@
 <section style="margin-top:1rem; text-align:center; justify-content:center; color:#6495ED" id="section-1"> <br><br>
     <h1>Patients Record Data</h1>
 </section>
+
 <div class="box col-8 mt-5">
   <div class="container table-responsive-sm">
     <table class="table text-white table-borderless table-hover ">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Health Case</th>
-          <th>Date of Case</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>asdasdadadasds</td>
-          <td>Risingasdasdasdasdasdasdasdasdas</td>
-          <td>Ultimate Power Gearasdasdasdasdasdasdasd</td>
-          <td><button type="button" class="btn btn-primary">View</button></td>
-        </tr>
-      </tbody>
-      <tbody>
-        <tr>
-          <td>Garuburn</td>
-          <td>Drive</td>
-          <td>Ultimate Gear</td>
-          <td><button type="button" class="btn btn-primary">View</button></td>
-        </tr>
-      </tbody>
-      <tbody>
-        <tr>
-          <td>Dravise</td>
-          <td>Sonic</td>
-          <td>Cyclone Magazine</td>
-          <td><button type="button" class="btn btn-primary">View</button></td>
-        </tr>
-      </tbody>
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Health Case</th>
+        <th>Date of Case</th>
+      </tr>
+    </thead>
+
+      <!-- RECORDS -->
+      <?php 
+      $i = 0;
+      foreach($patient_records as $data) :
+      ++$i;
+      ?>
+        <tbody>
+          <tr>
+            <td><?php echo $i.".)                 ";?><?php echo $data['patient_name'];?></td>
+            <td><?php echo $data['health_case'];?></td>
+            <td><?php echo $data['date_of_case'];?></td>
+            <td><a href="<?php echo base_url('edit_patients/index')?>" class="btn btn primary">View</a></td>
+          </tr>
+        </tbody>
+      <?php endforeach; ?>
+      <!-- /RECORDS -->
+      
     </table>
   </div>
     
