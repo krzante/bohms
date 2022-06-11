@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2022 at 09:46 AM
+-- Generation Time: Jun 07, 2022 at 10:26 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `bohms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `baranggay_event`
+--
+
+CREATE TABLE `baranggay_event` (
+  `id` int(255) NOT NULL,
+  `creator_id` int(255) NOT NULL,
+  `event_name` varchar(255) NOT NULL,
+  `event_description` varchar(255) NOT NULL,
+  `event_date` datetime DEFAULT NULL,
+  `event_location` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `baranggay_event`
+--
+
+INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_location`) VALUES
+(2, 1, 'COVID-19', 'Bakuna yay', NULL, 'Pasay'),
+(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, 'Mondstat'),
+(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, 'Bahay ni Mark'),
+(7, 2, 'Castoria', 'roll roll roll', NULL, 'Chaldea');
 
 -- --------------------------------------------------------
 
@@ -55,6 +80,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `baranggay_event`
+--
+ALTER TABLE `baranggay_event`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -64,6 +95,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `baranggay_event`
+--
+ALTER TABLE `baranggay_event`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
