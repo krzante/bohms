@@ -23,4 +23,12 @@ class Home_model extends CI_Model{
 
     }
 
+    public function getrow($id){
+        $this->db->select('*');
+        $this->db->from('baranggay_event');
+        $this->db->where('id=', $id);
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();   
+    }
+
 }

@@ -24,7 +24,7 @@
                 <?php $i = 0;
                  foreach($baranggay_event as $data) : ?>
                 <div class="event-card">
-                        <li><a href="#"><?php echo $data['event_name']; ?></a></li>
+                        <li><a href="<?php echo base_url('Show_Events/view/'.$data['id'].'/'); ?>"><?php echo $data['event_name']; ?></a></li>
                         <label><?php echo $data['event_description']; ?></label><br>
                         <label><?php echo $data['event_date'] ?></label>
                 </div>

@@ -9,5 +9,6 @@ $route['patient_records'] = 'patient_records/index';
 $route['default_controller'] = 'pages/view';
 $route['admindashboard'] = 'Pages/admindashboard';
 $route['(:any)'] = 'pages/view/$1';
+$route['Show_Events/view/(:any)'] = 'Show_Events/view/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
