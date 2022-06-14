@@ -30,4 +30,11 @@ class CreateEvent_model extends CI_Model{
 		return $this->db->insert('baranggay_event',$data);
 	}
 
+	public function delete_event($id){
+		$this->db->where('id', $id);
+		$this->db->delete('baranggay_event');
+		return true;
+	}
+
+
 }

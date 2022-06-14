@@ -41,7 +41,6 @@ class Create_Events extends CI_Controller{
         $this->load->view('templates/footer');
 	}
 	
-
     /**
      * Function to create event
      * 
@@ -94,6 +93,14 @@ class Create_Events extends CI_Controller{
             echo json_encode($data_var);
         }
     }
+
+    /** Delete function **/ 
+    public function delete($id){
+        $this->createevent_model->delete_event($id);
+        redirect('home');
+
+    }      
+
 }
 
 
