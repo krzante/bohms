@@ -42,7 +42,6 @@ class Create_Events extends CI_Controller{
 	}
 	
 
-
     /**
      * Function to create event
      * 
@@ -75,16 +74,25 @@ class Create_Events extends CI_Controller{
 	}
 
 
+    /**
+     * Function that is called by the AJAX request in the home page
+     * 
+     * @param       none
+     * @return      json        $data_var       Contains all the events in the database
+     */
     public function get_events(){
+        
 
-        $data = $this->home_model->get_events();
-        $indexed_data = array_map('array_values', $data);
-        // echo "<pre>";
-        // var_dump($indexed_data);
-        // echo"</pre>";
-        // exit;
-        echo json_encode($indexed_data);
-        return $indexed_data;
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+            $data_var = $this->home_model->get_events();
+
+            foreach ($data_var as $key => $value) {
+                $date = (new \DateTime($value['event_date']))->setTimezone(new DateTimeZone('Asia/Manila'));
+                $data_var[$key]['event_date'] = $date->format(DateTime::W3C);
+            }
+
+            echo json_encode($data_var);
+        }
     }
 }
 
