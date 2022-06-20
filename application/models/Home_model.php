@@ -10,6 +10,7 @@ class Home_model extends CI_Model{
     public function get_events(){
         $this->db->select('*');
         $this->db->from('baranggay_event');
+        $this->db->order_by('date_created', 'DESC');
         $objQuery = $this->db->get();
         return $objQuery->result_array();
        
@@ -20,6 +21,14 @@ class Home_model extends CI_Model{
        // $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
 	  // $baranggay_event['event_name'] = $query->row()->{'event_name'};
 
+    }
+
+    public function getrow($id){
+        $this->db->select('*');
+        $this->db->from('baranggay_event');
+        $this->db->where('id=', $id);
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();   
     }
 
 }
