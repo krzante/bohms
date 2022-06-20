@@ -41,15 +41,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Please Read Below 👇</h4><button class="btn-close" type="button" data-bs-dismiss="modal"></button>
+                <h4 class="modal-title">Select an action:</h4><button class="btn-close" type="button" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1929.611887830491!2d121.06293707209078!3d14.699933507386335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0bdb6e97ee5%3A0x2c73417ca081c326!2sBarangay%20Hall%2C%20Barangay%20Fairview%2C%20Quezon%20City!5e0!3m2!1sen!2sph!4v1654936153049!5m2!1sen!2sph" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="700" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+            <div class="modal-body justify-content-center">
+                <button type="button" id="create-event-button" class="btn btn-danger" data-bs-dismiss="modal">Create Event</button>
+                <button type="button" id="create-hotspot-button" class="btn btn-danger justify-content-end" data-bs-dismiss="modal">Add Disease Hotspot</button>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save yourself from this pain!</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
             </div>
         </div>
@@ -62,6 +62,8 @@
     // var ServiceId = document.getElementById("ServiceId"); // this will select the input with id = ServiceId
     // var prov = document.getElementById("ProviderId"); // this will select the input with id = ProviderId
     var map; // map variable
+    var lat;
+    var lng;
     var mapOptions = {
         zoom: 15,
         center: {lat:14.6998004, lng:121.0630183},
@@ -79,18 +81,19 @@
         
         if(isLoggedin == '1'){
             google.maps.event.addListener(map, "click", function(event) {
-                var lat = event.latLng.lat();
-                var lng = event.latLng.lng();
+                lat = event.latLng.lat();
+                lng = event.latLng.lng();
 
-                // $("#the-modal-example").modal('show');
+                $("#the-modal-example").modal('show');
                 
-                window.location.href = "<?php echo base_url('create-event')?>"+"/" +lat+"/" +lng;
+                // window.location.href = "<?php //echo base_url('create-event')?>"+"/" +lat+"/" +lng;
             });
 
         }
 
         // Getting all of the events
         GetEventLocations();
+        GetHotspotLocations();
         
     }
 
@@ -102,8 +105,20 @@
             type : "GET",
             dataType: 'json',
             success:function(data){
-                console.log(data);
+                // console.log(data);
                 AddMarkers(data);
+            }
+        });
+    }
+
+    function GetHotspotLocations(){
+        $.ajax({
+            url : "<?php echo base_url();?>hotspots/get_hotspots",
+            type : "GET",
+            dataType: 'json',
+            success:function(data){
+                console.log(data);
+                AddHotspots(data);
             }
         });
     }
@@ -136,8 +151,53 @@
                 });
             })(marker, data_arg[i]);
         }
-        
     }
+
+
+    function AddHotspots(data_arg){
+        
+        for (i = 0; i < data_arg.length; i++) {
+            var hotspot_coord_var = new google.maps.LatLng(data_arg[i]['lat'], data_arg[i]['lng']);
+            var infoWindow = new google.maps.InfoWindow();
+            
+            var cityCircle = new google.maps.Circle({
+                strokeColor: "#FF0000",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#FF0000",
+                fillOpacity: 0.35,
+                map,
+                center: hotspot_coord_var,
+                radius: Number(data_arg[i]['radius']),
+            });
+
+            (function (circle, data2_arg, hotspot_coord_arg) {
+                var content_var = "<div style = 'width:200px;min-height:40px'> <h5>"+ data2_arg['name'] + "</h5>" + data2_arg['description'] + "<br><br><label><strong>" + data2_arg['infected'] +" Infected </label></strong>"+"</div>";
+
+                google.maps.event.addListener(circle, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent(content_var);
+                    infoWindow.setPosition(hotspot_coord_arg);
+                    infoWindow.open(map, circle);
+                    console.log("NICE1");
+                });
+
+                google.maps.event.addListener(map, "rightclick", function (e) {
+                    circle.setVisible(!circle.getVisible());
+                });
+            })(cityCircle, data_arg[i], hotspot_coord_var);
+            // cityCircle.setClickable(false);
+        }
+    }
+
+    document.getElementById("create-event-button").onclick = function () {
+        window.location.href = "<?php echo base_url('create-event')?>"+"/" +lat+"/" +lng;
+    };
+
+    document.getElementById("create-hotspot-button").onclick = function () {
+        window.location.href = "<?php echo base_url('create-hotspot')?>"+"/" +lat+"/" +lng;
+    };
+
 </script>
 
 <script async defer

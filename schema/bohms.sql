@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2022 at 01:40 PM
+-- Generation Time: Jun 20, 2022 at 07:00 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,14 +43,35 @@ CREATE TABLE `baranggay_event` (
 --
 
 INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_lat`, `event_lng`, `date_created`) VALUES
-(2, 1, 'COVID-19', 'Bakuna yay', NULL, '', '', '2022-06-11 14:40:04'),
-(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, '', '', '2022-06-11 14:40:04'),
-(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, '', '', '2022-06-11 14:40:04'),
-(7, 2, 'Castoria', 'roll roll roll', NULL, '', '', '2022-06-11 14:40:04'),
-(9, 2, 'TESTESTSETSESTSET', 'TESTESTSETSESTSET', NULL, '', '', '2022-06-11 14:40:04'),
-(10, 2, 'asdasd', 'asdasd', NULL, '', '', '2022-06-11 14:40:47'),
-(13, 2, 'Bakuna Drive', 'bakuna lpara sa rabies ', '2022-06-06 07:30:00', '14.710385363390431', '121.04692504591061', '2022-06-11 17:18:37'),
-(14, 2, 'Bugbugin si Chard', 'Free for all suntok kay chard', '2022-06-14 20:53:00', '14.712087211567312', '121.04804084486081', '2022-06-11 18:52:09');
+(1, 2, 'Bakuna Drive', 'bakuna para sa rabies ', '2022-06-25 10:00:00', '14.70479200134589', '121.06180009991476', '2022-06-20 21:17:06'),
+(3, 2, 'tournament', 'Barangay Valorant Tournament', '2022-06-25 00:48:00', '14.708863484982524', '121.06055167746595', '2022-06-21 00:48:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotspots`
+--
+
+CREATE TABLE `hotspots` (
+  `id` int(255) NOT NULL,
+  `creator_id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `infected` int(255) NOT NULL,
+  `radius` int(255) NOT NULL,
+  `lat` varchar(255) NOT NULL,
+  `lng` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hotspots`
+--
+
+INSERT INTO `hotspots` (`id`, `creator_id`, `name`, `description`, `infected`, `radius`, `lat`, `lng`, `date_created`) VALUES
+(1, 2, 'COVID', 'RAWR', 25, 150, '14.70914010021868', '121.05994887849069', '2022-06-20 23:45:43'),
+(2, 2, 'FLU', 'HOTDOG', 10, 75, '14.706133123077509', '121.06385320042013', '2022-06-21 00:02:34'),
+(3, 2, 'TEST', 'RAWR', 67, 250, '14.704698603715132', '121.06246040052487', '2022-06-21 00:18:03');
 
 -- --------------------------------------------------------
 
@@ -118,6 +139,12 @@ ALTER TABLE `baranggay_event`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `hotspots`
+--
+ALTER TABLE `hotspots`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `patient_records`
 --
 ALTER TABLE `patient_records`
@@ -138,7 +165,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay_event`
 --
 ALTER TABLE `baranggay_event`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `hotspots`
+--
+ALTER TABLE `hotspots`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patient_records`
