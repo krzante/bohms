@@ -8,6 +8,9 @@ $route['create/(:any)/(:any)'] = 'create_events/create/$1/$2';
 // Hotspots routes
 $route['create-hotspot/(:any)/(:any)'] = 'hotspots/view_create_hotspot/$1/$2';
 $route['hotspot/create/(:any)/(:any)'] = 'hotspots/create_hotspot/$1/$2';
+$route['edit-hotspot/(:any)'] = 'hotspots/edit_hotspot_view/$1';
+$route['hotspot/update/(:any)'] = 'hotspots/update/$1';
+$route['delete-hotspot/(:any)'] = 'hotspots/delete/$1';
 
 $route['patient_records'] = 'patient_records/index';
 $route['default_controller'] = 'pages/view';

@@ -96,9 +96,10 @@ class Create_Events extends CI_Controller{
 
     /** Delete function **/ 
     public function delete($id){
-        $this->createevent_model->delete_event($id);
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $this->createevent_model->delete_event($id);
+        }
         redirect('home');
-
     }      
 
 }

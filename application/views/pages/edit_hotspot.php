@@ -1,31 +1,31 @@
 
-<body>  
+<body onload="colorChange()">  
 
-    <form method="POST" class="form bg mt-5" action="<?php echo base_url('hotspot/create/').$lat.'/'.$lng; ?>">
+    <form method="POST" class="form bg mt-5" action="<?php echo base_url('hotspot/update/').$id; ?>">
         <div class="box mt-5">
             <div class="mb-3">
-                <h1><b>New Disease Hotspot<b></h1>
+                <h1><b>EDIT HOTSPOT<b></h1>
                <img src="<?php echo base_url('/assets/images/Bohmsv1.png')?>" width="100" height="100">
             </div>
             
             <!-- Name -->
             <div class="mb-3">
-                <input required type="text" class="form-control" placeholder="Disease Name" name="hotspot-name">
+                <input required type="text" class="form-control" name="hotspot-name" placeholder="Name" value="<?php echo $name?>">
             </div>
             
             <!-- Description -->
             <div class="mb-3 input-group">
-                <input required type="text" class="p-5 form-control" placeholder="Description" name="hotspot-description">
+                <input required type="text" class="p-5 form-control" name="hotspot-description" placeholder="Description" value="<?php echo $description?>">
             </div>
 
             <!-- Infected -->
             <div class="mb-3 input-group">
-                <input required type="number" class="form-control" name="hotspot-infected" id="hotspot-infected" placeholder="Number of Infected" min="0" step="1" pattern="^\d+(?:\.\d{1,2})?$">
+                <input required type="number" class="form-control" name="hotspot-infected" id="hotspot-infected" placeholder="Number of Infected" value="<?php echo $infected?>" min="0" step="1" pattern="^\d+(?:\.\d{1,2})?$">
             </div>
 
             <!-- Radius -->
             <div class="mb-3 input-group">
-                <input required type="number" class="form-control" name="hotspot-radius" id="hotspot-radius" placeholder="Radius (Min 50, Max 250 meters)" min="50" max="250" step="0.01" pattern="^\d+(?:\.\d{1,2})?$">
+                <input required type="number" class="form-control" name="hotspot-radius" id="hotspot-radius" placeholder="0.0 meters" value="<?php echo $radius?>" min="0" step="0.01" pattern="^\d+(?:\.\d{1,2})?$">
             </div>
 
             <!-- Color  -->
@@ -33,7 +33,7 @@
                 <!-- <input required type="number" class="form-control" name="hotspot-color" id="hotspot-color" placeholder="color placeholder" min="0" step="0.01" pattern="^\d+(?:\.\d{1,2})?$"> -->
                 <select required name="hotspot-color" id="hotspot-color">
                     <option value="#333331">Light Warning</option>
-                    <option value="#ff8000">Moderate Warning</option>
+                    <option value="#FF8000">Moderate Warning</option>
                     <option value="#FF0000">Critical Warning</option>
                 </select>
             </div>
@@ -47,7 +47,7 @@
             <?php echo validation_errors(); ?>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-custom" name="Create" >Create</button>
+                <button type="submit" class="btn btn-custom" name="Create" >UPDATE</button>
                 <img src="<?php echo base_url('/assets/images/create_event.png')?>" width="138" height="130" >
             </div>
         </div>
@@ -131,7 +131,13 @@
         console.log("cleared");
         cityCircle.setMap(null);
     });
+
+    function colorChange(){
+        const $select = document.querySelector('#hotspot-color');
+        $select.value = "<?php echo $color ?>";
+    }
 </script>
+
 
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=<?php echo env('GOOGLE_MAPS_KEY')?>&libraries=places&callback=initialize">
