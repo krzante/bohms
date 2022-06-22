@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2022 at 01:40 PM
+-- Generation Time: Jun 22, 2022 at 07:20 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,19 +38,24 @@ CREATE TABLE `baranggay_event` (
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `baranggay_event`
+-- Table structure for table `hotspots`
 --
 
-INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_lat`, `event_lng`, `date_created`) VALUES
-(2, 1, 'COVID-19', 'Bakuna yay', NULL, '', '', '2022-06-11 14:40:04'),
-(3, 1, 'Genshin', 'Magroroll si Kapitan', NULL, '', '', '2022-06-11 14:40:04'),
-(4, 2, '\"Roll Tayo\" - Mark', 'magroroll tayo sabi ni mark', NULL, '', '', '2022-06-11 14:40:04'),
-(7, 2, 'Castoria', 'roll roll roll', NULL, '', '', '2022-06-11 14:40:04'),
-(9, 2, 'TESTESTSETSESTSET', 'TESTESTSETSESTSET', NULL, '', '', '2022-06-11 14:40:04'),
-(10, 2, 'asdasd', 'asdasd', NULL, '', '', '2022-06-11 14:40:47'),
-(13, 2, 'Bakuna Drive', 'bakuna lpara sa rabies ', '2022-06-06 07:30:00', '14.710385363390431', '121.04692504591061', '2022-06-11 17:18:37'),
-(14, 2, 'Bugbugin si Chard', 'Free for all suntok kay chard', '2022-06-14 20:53:00', '14.712087211567312', '121.04804084486081', '2022-06-11 18:52:09');
+CREATE TABLE `hotspots` (
+  `id` int(255) NOT NULL,
+  `creator_id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `infected` int(255) NOT NULL,
+  `radius` int(255) NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `lat` varchar(255) NOT NULL,
+  `lng` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -118,6 +123,12 @@ ALTER TABLE `baranggay_event`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `hotspots`
+--
+ALTER TABLE `hotspots`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `patient_records`
 --
 ALTER TABLE `patient_records`
@@ -138,7 +149,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay_event`
 --
 ALTER TABLE `baranggay_event`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `hotspots`
+--
+ALTER TABLE `hotspots`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patient_records`

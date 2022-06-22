@@ -17,39 +17,65 @@
         <ul>
             <h4 >Barangay</h4>
             <h5 >Announcements</h5>
-            <div class="annoucements">
+            <div class="annoucements" style="overflow-y: auto; height: 100%; max-height: 65vh">
+            <img src="<?php echo base_url('/assets/images/girl_with_megaphone.png')?>" style="position: absolute; z-index: -1; margin-top: 10rem">
                 <?php $i = 0;
                  foreach($baranggay_event as $data) : ?>
-                <div class="event-card">
+                <div class="event-card" >
                         <li><a href="<?php echo base_url('Show_Events/view/'.$data['id'].'/'); ?>"><?php echo $data['event_name']; ?></a></li>
-                        <label><?php echo $data['event_description']; ?></label><br>
+                        <label><?php echo mb_strimwidth($data['event_description'], 0, 25, "..."); ?></label><br>
                         <label><?php echo $data['event_date'] ?></label>
                 </div>
                 <?php if (++$i == 4) break; ?>
                 <?php endforeach; ?>    
                 
             </div>
-            <img src="<?php echo base_url('/assets/images/girl_with_megaphone.png')?>" >
+            
         </ul>
     </nav>
 
     <!-- This is where the google map will be shown -->
-    <div id="map" style="height: 1200px; width:1200px;"></div>
+    <div id="map" style="height: 100%; width:100%;"></div>
+    <div hidden id="legend" style="background: rgba(255,255,255,0.8); border: 3px solid #000; padding: 10px; margin: 10px; width:10rem; margin-top: 1.25rem; "><h3>Legend</h3></div>
 
     <!-- Add Modal -->
     <div class="modal fade" id="the-modal-example">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Please Read Below 👇</h4><button class="btn-close" type="button" data-bs-dismiss="modal"></button>
+                <h4 class="modal-title">Select an action:</h4><button class="btn-close" type="button" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1929.611887830491!2d121.06293707209078!3d14.699933507386335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0bdb6e97ee5%3A0x2c73417ca081c326!2sBarangay%20Hall%2C%20Barangay%20Fairview%2C%20Quezon%20City!5e0!3m2!1sen!2sph!4v1654936153049!5m2!1sen!2sph" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="700" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+            <div class="modal-body justify-content-center">
+                <button type="button" id="create-event-button" class="btn btn-danger" data-bs-dismiss="modal">Create Event</button>
+                <button type="button" id="create-hotspot-button" class="btn btn-danger justify-content-end" data-bs-dismiss="modal">Add Disease Hotspot</button>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Save yourself from this pain!</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="confirm-delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Delete This Hotspot?</h4><button class="btn-close" type="button" data-bs-dismiss="modal"></button>
+            </div>
+
+            
+
+            <div class="modal-body justify-content-center d-flex">
+                <form method="POST" class="form bg mt-5" id="delete-form" action="oogabooga/mali/4">
+                    <button type="submit" id="create-hotspot-button" class="btn btn-danger justify-content-center" data-bs-dismiss="modal">Yes, Delete It</button>
+                </form>
+                
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
             </div>
             </div>
         </div>
@@ -58,10 +84,9 @@
 
 <script>
     var isLoggedin = '<?php echo isset($_SESSION['user']) ?>';
-    // var info = document.getElementById("info"); // this will select the current div  with id = info
-    // var ServiceId = document.getElementById("ServiceId"); // this will select the input with id = ServiceId
-    // var prov = document.getElementById("ProviderId"); // this will select the input with id = ProviderId
     var map; // map variable
+    var lat;
+    var lng;
     var mapOptions = {
         zoom: 15,
         center: {lat:14.6998004, lng:121.0630183},
@@ -79,18 +104,54 @@
         
         if(isLoggedin == '1'){
             google.maps.event.addListener(map, "click", function(event) {
-                var lat = event.latLng.lat();
-                var lng = event.latLng.lng();
+                lat = event.latLng.lat();
+                lng = event.latLng.lng();
 
-                // $("#the-modal-example").modal('show');
+                $("#the-modal-example").modal('show');
                 
-                window.location.href = "<?php echo base_url('create-event')?>"+"/" +lat+"/" +lng;
+                // window.location.href = "<?php //echo base_url('create-event')?>"+"/" +lat+"/" +lng;
             });
 
         }
 
+        const icons = {
+            light_warning: {
+            name: "Light Warning",
+            icon: "<?php echo base_url('assets/images/light-warning-square.png')?>",
+            },
+            moderate_warning: {
+            name: "Moderate Warning",
+            icon: "<?php echo base_url('assets/images/moderate-warning-square.png')?>",
+            },
+            critical_warning: {
+            name: "Critical Warning",
+            icon: "<?php echo base_url('assets/images/critical-warning-square.png')?>",
+            },
+            map_pin: {
+            name: "Event Pin",
+            icon: "<?php echo base_url('assets/images/map-pin.svg')?>",
+            },
+        };  
+
+        const legend = document.getElementById("legend");
+        for (const key in icons) {
+            const type = icons[key];
+            const name = type.name;
+            const icon = type.icon;
+            const div = document.createElement("div");
+
+            div.innerHTML = '<img src="' +icon+ '" style="padding: 5px; width:20%"> ' + name;
+            legend.appendChild(div);
+        }
+
+        
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
+        setTimeout(() => {
+            document.getElementById("legend").hidden = false;
+        }, 2500);
         // Getting all of the events
         GetEventLocations();
+        GetHotspotLocations();
         
     }
 
@@ -102,8 +163,21 @@
             type : "GET",
             dataType: 'json',
             success:function(data){
-                console.log(data);
+                // console.log(data);
                 AddMarkers(data);
+            }
+        });
+    }
+
+    function GetHotspotLocations(){
+        $.ajax({
+            url : "<?php echo base_url();?>hotspots/get_hotspots",
+            type : "GET",
+            dataType: 'json',
+            success:function(data){
+                // console.log(data);
+                AddHotspots(data);
+                // initHotspotEdit(data);
             }
         });
     }
@@ -136,11 +210,88 @@
                 });
             })(marker, data_arg[i]);
         }
-        
     }
+
+
+    function AddHotspots(data_arg){
+        
+        for (i = 0; i < data_arg.length; i++) {
+            var hotspot_coord_var = new google.maps.LatLng(data_arg[i]['lat'], data_arg[i]['lng']);
+            var infoWindow = new google.maps.InfoWindow();
+            
+            var cityCircle = new google.maps.Circle({
+                strokeColor: data_arg[i]['color'],
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: data_arg[i]['color'],
+                fillOpacity: 0.45,
+                map,
+                center: hotspot_coord_var,
+                radius: Number(data_arg[i]['radius']),
+            });
+
+            (function (circle, data2_arg, hotspot_coord_arg) {
+                var content_var
+
+                if(isLoggedin == '1'){
+                    content_var = "<div style = 'width:200px;min-height:40px'> <h5>" + data2_arg['name'] + "</h5>" + 
+                    data2_arg['description'] + 
+                    "<br><br><label><strong>" + data2_arg['infected'] +" Infected </label></strong>"+
+                    "<br><br><button type='button' id='hotspot-edit-" + data2_arg['id'] + "' onclick='hotspotEdit("+ data2_arg['id'] +")' class='btn btn-primary'>Edit</button>" +
+                    "<button type='button' data-bs-toggle='modal' data-bs-target='#confirm-delete' id='hotspot-delete-" + data2_arg['id'] + "' onclick='hotspotDelete("+ data2_arg['id'] +")' class='btn btn-danger'>Delete</button>" +
+                    "</div>";
+                }
+                else{
+                    content_var = "<div style = 'width:200px;min-height:40px'> <h5>"+ data2_arg['name'] + "</h5>" + data2_arg['description'] + "<br><br><label><strong>" + data2_arg['infected'] +" Infected </label></strong>"+"</div>";
+                }
+
+                google.maps.event.addListener(circle, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent(content_var);
+                    infoWindow.setPosition(hotspot_coord_arg);
+                    infoWindow.open(map, circle);
+                });
+
+                google.maps.event.addListener(map, "rightclick", function (e) {
+                    circle.setVisible(!circle.getVisible());
+                });
+
+            })(cityCircle, data_arg[i], hotspot_coord_var);
+        }
+        // initHotspotEdit(data_arg);
+    }
+
+    document.getElementById("create-event-button").onclick = function () {
+        window.location.href = "<?php echo base_url('create-event')?>"+"/" +lat+"/" +lng;
+    };
+
+    document.getElementById("create-hotspot-button").onclick = function () {
+        window.location.href = "<?php echo base_url('create-hotspot')?>"+"/" +lat+"/" +lng;
+    };
+
+    function hotspotEdit(hotspot_id_arg){
+        // console.log(document.getElementById("hotspot-edit-"+hotspot_id_arg));
+        document.getElementById("hotspot-edit-"+hotspot_id_arg).onclick = function () {
+            window.location.href = "<?php echo base_url('edit-hotspot/')?>"+ hotspot_id_arg;
+        };
+    }
+
+    function hotspotDelete(hotspot_id_arg){
+        document.getElementById("delete-form").action = "<?php echo base_url('delete-hotspot/'); ?>" + hotspot_id_arg;
+        console.log(document.getElementById("delete-form").action);
+    }
+
+    //triggered when modal is about to be shown
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        //get data-id attribute of the clicked element
+        var bookId = $(e.relatedTarget).data('book-id');
+        //populate the textbox
+        $(e.currentTarget).find('input[name="bookId"]').val(bookId);
+    });
 </script>
 
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=<?php echo env('GOOGLE_MAPS_KEY')?>&libraries=places&callback=initialize">
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+

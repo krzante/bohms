@@ -19,18 +19,20 @@
 </head>
 <body>  
 
-    <form method="post" class="form bg mt-5" action="<?php echo base_url('create_events/delete/'.$baranggay_event[0]['id'])?>">
+    <form method="POST" class="form bg mt-5" action="<?php echo base_url('create_events/delete/'.$baranggay_event[0]['id'])?>">
         <div class="box mt-5">
             <div class="mb-3">
-            <h2><b>Baranggay Event<b></h2>
-            <ul>
-  <li><span><?php echo $baranggay_event[0]['event_name'];?></span></li>
-  <li><span><?php echo $baranggay_event[0]['event_description'];?></span></li>
-  <li><span><?php echo $baranggay_event[0]['event_date'];?></span> </li>
-            </ul>
-        </div>       
-        <div class="mb-3">
-        <button type="submit" class="btn btn-custom" name="delete" >Delete</button>
-         </div>            
+                <h2><b>Baranggay Event<b></h2>
+                <ul>
+                    <li><span><?php echo $baranggay_event[0]['event_name'];?></span></li>
+                    <li><span><?php echo $baranggay_event[0]['event_description'];?></span></li>
+                    <li><span><?php echo $baranggay_event[0]['event_date'];?></span> </li>
+                </ul>
+            </div>       
+            <div class="mb-3">
+                <?php if(isset($_SESSION['user'])):?>
+                <button type="submit" class="btn btn-custom" name="delete" >Delete</button>
+                <?php endif; ?>
+            </div>       
         </div>
     </form>
