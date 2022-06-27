@@ -22,10 +22,15 @@
 
 <main>
 <section style="margin-top:1rem; text-align:center; justify-content:center; color:#6495ED" id="section-1"> <br><br>
-    <h1>Patients Record Data</h1>
+    <h1><?php echo $title;?></h1>
 </section>
 
 <div class="box col-8 mt-5">
+      <form action = "<?php echo site_url('patient_records/skeyword/');?>" method="post">
+          <div class="input-group">
+              <input type="text" name="title" placeholder="&#xf002 Search..." style="font-family:FontAwesome" id="search" class="bg-light border border-secondary form-control">
+          </div>
+      </form>
   <div class="container table-responsive-sm">
     <table class="table text-white table-borderless table-hover ">
 

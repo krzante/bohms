@@ -6,6 +6,17 @@ class Patient_Records extends CI_Controller{
     public function index(){
        
         $data['patient_records'] = $this -> patient_model -> get_patientrecords();
+        $data['title'] = 'Patient Records';
+        $this->load->view('templates/header');
+        $this->load->view('pages/adminPage', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function skeyword(){
+        $key = $this->input->post('title');
+        $data['title'] = 'Searched: '.$key;
+        $data['patient_records'] = $this -> patient_model -> get_patientrecords_by_search($key);
+
         $this->load->view('templates/header');
         $this->load->view('pages/adminPage', $data);
         $this->load->view('templates/footer');

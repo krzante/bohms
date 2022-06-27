@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Patient_model extends CI_Model{
     
     public function __construct(){
-		$this->load->database();
+		  $this->load->database();
 	}
 
     public function get_patientrecords(){
@@ -22,4 +22,12 @@ class Patient_model extends CI_Model{
 		$this->db->delete('patient_records');
 		return true;
 	}
+
+  public function get_patientrecords_by_search($key){
+    $this->db->like('patient_name',$key);
+    $this->db->select('*');
+    $query = $this->db->get('patient_records');
+    
+    return $query->result_array();
+  }
 }
