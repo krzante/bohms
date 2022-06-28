@@ -36,7 +36,7 @@ class Create_Patients extends CI_Controller{
 
         
 		$this->load->view('templates/header');
-        $this->load->view('pages/admin');
+        $this->load->view('pages/create_patient_record');
         $this->load->view('templates/footer');
 	}
 
@@ -64,7 +64,7 @@ class Create_Patients extends CI_Controller{
 
         
 		$this->load->view('templates/header');
-        $this->load->view('pages/admin');
+        $this->load->view('pages/editpatient');
         $this->load->view('templates/footer');
 	}   
 }

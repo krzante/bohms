@@ -21,28 +21,31 @@
     <div class="form bg ">
         <div class="adminbox ">
             <div class="mb-3">
-            <h2 style="text-align:center"><b>BOHMS Account Edit<b><h2>
+            <h2 style="text-align:center"><b>BOHMS Password Change<b><h2>
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Username" name="Username">
+                <input type="text" disabled class="form-control" placeholder="Insert Username Here" name="Username">
             </div>
 
             <div class="mb-3">
-                <span>Position</span>
-                <select class="form-control" placeholder="position" name="position">
-                    <option value="Barangay Chairman">Barangay Chairman</option>
-                    <option value="Barangay Councilor">Barangay Councilor</option>
-                    <option value="Barangay Secretary">Barangay Secretary</option>
-                    <option value="Barangay Treasurer">Barangay Treasurer</option>
-                </select>
-                <!-- <input type="text" class="form-control" placeholder="Sex" name="sex"> -->
+                <span>Old Password</span>
+                <input type="password" class="form-control" name="old password" id="phone">
+                <?php echo form_error("Password", '<p class="text-danger">','</p>');?> 
             </div>
-            
+
             <div class="mb-3">
-                <span>Date of Birth</span>
-                <input type="date" required class="form-control" placeholder="Date of Birth" name="dbirth">
+                <span>New Password</span>
+                <input type="password" class="form-control" name="old password" id="phone">
+                <?php echo form_error("Password", '<p class="text-danger">','</p>');?> 
             </div>
+
+            <div class="mb-3">
+                <span>Confirm New Password</span>
+                <input type="password" class="form-control" name="confirm_password" id="confirm_password">
+                <?php echo form_error("Confirm Password", '<p class="text-danger">','</p>');?> 
+            </div>
+
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-login" name="Cancel" >Cancel</button>
