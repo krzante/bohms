@@ -1,3 +1,4 @@
+
 <html lang="en">
 
 <head>
@@ -25,7 +26,7 @@
                 <ul>
                 <b>Secret key authorized. You may now log in.</b>  
                 </ul>
-                <button type="submit" class="btn btn-custom" name="Proceed" >Proceed</button>
+                <button class="btn btn-custom" name="Proceed" ><a style="text-decoration:none; color:white;" href='<?php echo(base_url("admin"));?>'>Proceed</a></button>
             </div>       
             <div class="mb-3">
             </div>       

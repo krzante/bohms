@@ -35,7 +35,7 @@ class Create_Accounts extends CI_Controller{
             if($validate == true){
                 $data = $this->input->post();
                 $this->createaccount_model->create($data);
-                redirect('/home');
+                redirect('/success');
             }
             $this->session->set_flashdata('seckey',"Invalid Secret Key");
             

@@ -31,8 +31,8 @@
               <input type="text" name="title" placeholder="&#xf002 Search..." style="font-family:FontAwesome" id="search" class="bg-light border border-secondary form-control">
           </div>
       </form>
-  <div class="container table-responsive-sm">
-    <table class="table text-white table-borderless table-hover ">
+  <div class="container table-responsive-sm" style="min-height:570px !important; height:200px !important; padding-top:15px !important">
+    <table class="table text-white table-borderless table-hover table-wrapper-scroll-y my-custom-scrollbar" >
 
     <thead>
       <tr>
@@ -50,12 +50,14 @@
       ?>
         <tbody>
           <tr>
-            <td><?php echo $i.".)                 ";?><?php echo $data['patient_name'];?></td>
-            <td><?php echo $data['health_case'];?></td>
+            <td><?php echo $i.".)                 ";?><?php echo mb_strimwidth($data['patient_name'],0,16,"...");?></td>
+            <td><?php echo mb_strimwidth($data['health_case'],0,16,"...");?></td>
             <td><?php echo $data['date_of_case'];?></td>
             <td><a href="<?php echo base_url('edit_patients/index')?>"><button type="button" class="btn btn-primary">View</button></a></td>
-            <td><a href="<?php echo base_url('edit_patients/delete/'. $data['id'])?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
-          </tr>
+            <form action = "<?php echo site_url('edit_patients/delete/'.$data['id']);?>" method="post">
+              <td><button type="submit" class="btn btn-danger">Delete</button></td>
+            </form>
+            </tr>
         </tbody>
       <?php endforeach; ?>
       <!-- /RECORDS -->
@@ -71,6 +73,21 @@
 <!-- <div style="height: 100vh;"class="container-fluid"> -->
     <!-- <div class="row"> -->
 
+
+
+
+<style>
+  .my-custom-scrollbar {
+position: relative;
+width:auto;
+height: 550px;
+overflow-x: hidden;
+}
+.table-wrapper-scroll-y {
+display: inline-block;
+}
+  </style>
+</div>
 
     
 </body>
