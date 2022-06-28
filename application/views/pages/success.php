@@ -17,22 +17,17 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
 </head>
-<body>  
-
-    <form method="POST" class="form bg mt-5" action="<?php echo base_url('create_events/delete/'.$baranggay_event[0]['id'])?>">
+<body> 
+    <form method="POST" class="form bg mt-5">
         <div class="box mt-5">
             <div class="mb-3">
-                <h2><b>Baranggay Event<b></h2>
+                <h2><b>BOHMS Signup Complete!<b></h2>
                 <ul>
-                    <li><span><?php echo $baranggay_event[0]['event_name'];?></span></li>
-                    <li><span><?php echo $baranggay_event[0]['event_description'];?></span></li>
-                    <li><span><?php echo $baranggay_event[0]['event_date'];?></span> </li>
+                <b>Secret key authorized. You may now log in.</b>  
                 </ul>
+                <button type="submit" class="btn btn-custom" name="Proceed" >Proceed</button>
             </div>       
             <div class="mb-3">
-                <?php if(isset($_SESSION['user'])):?>
-                <button type="submit" class="btn btn-danger" name="delete" >Delete</button>
-                <?php endif; ?>
             </div>       
         </div>
-    </form>
+</form>
