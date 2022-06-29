@@ -22,7 +22,7 @@
                 <?php $i = 0;
                  foreach($baranggay_event as $data) : ?>
                 <div class="event-card" >
-                        <li><a href="<?php echo base_url('Show_Events/view/'.$data['id'].'/'); ?>"><?php echo $data['event_name']; ?></a></li>
+                        <li><a href="<?php echo base_url('Show_Events/view/'.$data['id'].'/'); ?>"><?php echo mb_strimwidth($data['event_name'], 0, 25, "..."); ?></a></li>
                         <label><?php echo mb_strimwidth($data['event_description'], 0, 25, "..."); ?></label><br>
                         <label><?php echo $data['event_date'] ?></label>
                 </div>
