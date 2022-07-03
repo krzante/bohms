@@ -18,35 +18,37 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
 </head>
 <body>  
-    <div class="form bg ">
+    <form method="post" class="form bg mt-5" action="<?php echo base_url('Homes/edit_acc'); ?>">
         <div class="adminbox ">
             <div class="mb-3">
             <h2 style="text-align:center"><b>BOHMS Account Edit<b><h2>
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Username" name="Username">
+                <input type="text" class="form-control" value="<?php echo $user['name'];?>" placeholder="<?php echo $user['name'];?>" name="name">
             </div>
 
             <div class="mb-3">
                 <span>Position</span>
-                <select class="form-control" placeholder="position" name="position">
-                    <option value="Barangay Chairman">Barangay Chairman</option>
-                    <option value="Barangay Councilor">Barangay Councilor</option>
-                    <option value="Barangay Secretary">Barangay Secretary</option>
-                    <option value="Barangay Treasurer">Barangay Treasurer</option>
+                <select class="form-control" value="<?php echo $user['Position'];?>" placeholder="position" name="Position">
+                    <option value="Baranggay Chairman">Baranggay Chairman</option>
+                    <option value="Baranggay Councilor">Baranggay Councilor</option>
+                    <option value="Baranggay Secretary">Baranggay Secretary</option>
+                    <option value="Baranggay Treasurer">Baranggay Treasurer</option>
+                    <option selected value="Baranggay Board Member">Baranggay Board Member</option>
                 </select>
                 <!-- <input type="text" class="form-control" placeholder="Sex" name="sex"> -->
             </div>
             
             <div class="mb-3">
                 <span>Date of Birth</span>
-                <input type="date" required class="form-control" placeholder="Date of Birth" name="dbirth">
+                <input type="date" required class="form-control"  value="<?php echo $user['Birthdate'];?>" placeholder="Date of Birth" name="Birthdate">
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-login" name="Cancel" >Cancel</button>
                 <button type="submit" class="btn btn-login" name="Save" >SAVE</button>
             </div>
+
+            <?php echo validation_errors(); ?>
         </div>
-    </div>
+    </form>

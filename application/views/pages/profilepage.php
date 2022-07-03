@@ -27,40 +27,46 @@
   </ul>
 </nav>
 
-<div class = "profile">
+<div class = "profile pt-3">
         <div class="m-3 cover-photo-container">
                 <img src="<?php echo base_url('assets/images/defaultcover.png');?>" class= "cover-photo" >
-            </div>
-<div class="trending-profile-img-box">
-        <div class = "profile-photo">
-            <!-- Profile Picture -->
-            <img src="<?php echo base_url('assets/images/Dummy01.png');?>" width= "120" height="120"  class="rounded-circle">
         </div>
-        
-        <div class="text-dark text-center mt-3">
-            <h3><span><b>BOHMS User</b></span><h3>
+        <div class="trending-profile-img-box">
+            <div class = "profile-photo">
+                <!-- Profile Picture -->
+                <img src="<?php echo base_url('assets/images/Dummy01.png');?>" width= "120" height="120"  class="rounded-circle">
+            </div>
+            
+            <div class="text-dark text-center mt-3 pb-3 mb-3">
+                <h3><span><b>Name: <?php echo $user['name'];?></b></span><h3>
+                <h3><span><b>Position: <?php echo $user['Position'];?></b></span><h3>
+                <h3><span><b>Birthdate: <?php echo $user['Birthdate'];?></b></span><h3>
+                <h3><span><b><a href="<?php echo base_url('Homes/edit_acc'); ?>" class="list-link screen-sm-hidden mb-5" style="margin-left:10rem; color: white; background:#4073AF; border-radius: 15px; width:6rem;">Edit</a></b></span><h3>
+            </div>
         </div>
 
-        <div class="row" style="height: 300px !important;">
-                <div class="bg-light text-dark about ">
-                    <h2>About Me</h2>
-                    <p>Position: Barangay Chairman</p>
-                    <p>Birthday: August 9, 1996</p>
-                    <a type="submit" id="edit" class="btn btn-custom" name="edit" >EDIT PROFILE</a>
+        <div class="card pt-3 mt-5" style="background: #4073AF; border-radius: 15px; height: auto; overflow-y: visible;">
+        <h4 style="text-align:center; color:white;"><b>Events Created:<b><h4>
+                <ul>
+                <div class="annoucements pt-5" style="overflow-y: auto; height: 300px; max-height: 65vh">
+                    <?php
+                        foreach($baranggay_event as $data) : ?>
+                            <table class="table text-white table-borderless table-hover table-wrapper-scroll-y my-custom-scrollbar" >
+                            <thead><tr><th></th></tr></thead>
+                            <tbody>
+                            <tr>
+                                    <td><li><a href="<?php echo base_url('Show_Events/view/'.$data['id'].'/'); ?>"><?php echo mb_strimwidth($data['event_name'], 0, 15, "..."); ?></a></li></td>
+                                    <td><label><?php echo mb_strimwidth($data['event_description'], 0, 15, "..."); ?></label><br></td>
+                                    <td><label><?php echo $data['event_date'] ?></label></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        <?php endforeach; ?>
                 </div>
-</div>
+                </ul>
+        </div>
+<!-- </div> -->
 
-<div class="bg-light text-dark hopiumbox">
-<h4 style="text-align:center"><b>Event Attendance<b><h4>
-        <ul>
-        <div class="annoucements" style="overflow-y: auto; height: 100%; max-height: 65vh">
-            <li><a>Kirby</a></li>
-            <li><a>Kirby</a></li>
-            <li><a>Kirby</a></li>
-            <li><a>Kirby</a></li>
-            </div>
-        </ul>
-</div>
 </body>
 
 <style>

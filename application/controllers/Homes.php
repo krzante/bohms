@@ -9,4 +9,34 @@ class Homes extends CI_Controller{
         $this->load->view('home/index', $data);
     }
 
+    public function profile(){
+        $data['baranggay_event'] = $this -> home_model -> get_events_by_profile($this->session->userdata('user')['id']);
+        $data['user'] = $this -> home_model -> getprofile($this->session->userdata('user')['id']);
+        $this->load->view('templates/header');        
+        $this->load->view('pages/profilepage', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit_acc(){
+        $data['user'] = $this -> home_model -> getprofile($this->session->userdata('user')['id']);
+       
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('Position', 'Position', 'required');
+        
+        if($this->form_validation->run() === false){
+            $this->load->view('templates/header');        
+            $this->load->view('pages/accedit', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $data = array(
+				'name' => $this->input->post('name'),
+                'Position' => $this->input->post('Position'),
+                'Birthdate' => $this->input->post('Birthdate')
+			);
+
+            $this->home_model->update_profile($data);
+            redirect('/profile');
+        }
+    }
+
 }

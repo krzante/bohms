@@ -12,6 +12,7 @@ $route['edit-hotspot/(:any)'] = 'hotspots/edit_hotspot_view/$1';
 $route['hotspot/update/(:any)'] = 'hotspots/update/$1';
 $route['delete-hotspot/(:any)'] = 'hotspots/delete/$1';
 
+$route['profile'] = 'Homes/profile/';
 $route['patient_records'] = 'patient_records/index';
 $route['default_controller'] = 'pages/view';
 $route['admindashboard'] = 'Pages/admindashboard';
