@@ -120,7 +120,7 @@ body.light-theme {
     top: 0;
     left: 0;
     width: 100%;
-    height:8%;
+    height: 8%;
     z-index: 999;
 }
 
@@ -304,8 +304,8 @@ body.light-theme {
 /*for Forgot Password*/
 .box {
     background-color: var(--secondary-background-color);
-    position:absolute;
-    top:4rem;
+    position: absolute;
+    top: 4rem;
     padding: 2rem 4rem;
     border-radius: 15px;
     box-shadow: 2px 5px;
@@ -322,8 +322,8 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: center;
     width: 35%;
-    position:absolute;
-    top:100px;
+    position: absolute;
+    top: 100px;
 }
 
 .adminbox2 {
@@ -333,18 +333,18 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: center;
     width: 30%;
-    height:50%;
-    position:absolute;
-    top:78px;
-    
+    height: 50%;
+    position: absolute;
+    top: 78px;
+
 }
 
-.rounded-circle{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
- }
+.rounded-circle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
 
 
 
@@ -356,9 +356,9 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: center;
     width: 55%;
-    position:absolute;
-    top:200px;
-    
+    position: absolute;
+    top: 200px;
+
 }
 
 .castoria-box {
@@ -368,14 +368,14 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: center;
     width: 50%;
-    position:absolute;
-    top:180px;
-    
+    position: absolute;
+    top: 180px;
+
 }
 
 /* Profile v2 */
 
-.profile{
+.profile {
     max-width: 140rem;
     width: 85%;
     min-height: 100%;
@@ -387,7 +387,7 @@ body.light-theme {
     display: flexbox;
 }
 
-.profile-photo{
+.profile-photo {
     width: 120px;
     height: 120px;
     position: relative;
@@ -409,7 +409,7 @@ body.light-theme {
     margin-top: 130px;
 }
 
-.cover-photo{
+.cover-photo {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -428,9 +428,9 @@ body.light-theme {
     height: 100px;
     width: 25%;
     height: 25%;
-    top:475px;
-    left:290px; 
-    position:absolute;
+    top: 475px;
+    left: 290px;
+    position: absolute;
 }
 
 .hopiumbox {
@@ -440,7 +440,7 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: left;
     width: 450px;
-    height:500px;
+    height: 500px;
     margin-top: 200px;
     margin-left: 300px;
 }
@@ -716,14 +716,14 @@ body.light-theme {
 .trending-profile-img-box {
     display: flex;
     flex-direction: column;
-    height:10em;
+    height: 10em;
     align-items: center;
     font-weight: bold;
     justify-content: center;
-    margin: -4em 0 0 0;
+    margin: -2em 0 0 0;
     width: 100%;
     object-fit: contain;
-  
+
 }
 
 

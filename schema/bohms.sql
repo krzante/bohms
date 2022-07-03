@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2022 at 11:27 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.14
+-- Generation Time: Jul 03, 2022 at 11:29 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,16 @@ CREATE TABLE `baranggay_event` (
   `event_lng` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `baranggay_event`
+--
+
+INSERT INTO `baranggay_event` (`id`, `creator_id`, `event_name`, `event_description`, `event_date`, `event_lat`, `event_lng`, `date_created`) VALUES
+(1, 2, 'TESAT', 'TEST', '2022-07-03 15:42:00', '14.707126909730071', '121.04491774773909', '2022-07-03 15:42:44'),
+(2, 2, 'TEST2', 'TEST2', '2022-07-06 16:16:00', '14.70704389116697', '121.051363431278', '2022-07-03 16:16:15'),
+(3, 2, 'aDSASDASDASDSDASDASDASDASDASDASDASDASDSAD', 'aaDSASDASDASDSDASDASDASDASDASDASDASDASDSAD', '2022-07-22 16:16:00', '14.710945729499603', '121.06286474353386', '2022-07-03 16:16:32'),
+(4, 2, 'TEST4', 'ASDASD', '2022-07-22 16:21:00', '14.699862665990903', '121.06168993598534', '2022-07-03 16:21:50');
 
 -- --------------------------------------------------------
 
@@ -127,7 +137,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `Birthdate`, `Position`) VALUES
 (1, 'asdasd', 'asdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', NULL, ''),
-(2, 'das', 'ads@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', NULL, ''),
+(2, 'das', 'ads@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', '2022-07-21', 'Baranggay Chairman'),
 (3, 'user0', 'user0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', NULL, ''),
 (4, 'test1', 'test@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', NULL, ''),
 (5, 'asdasdasd', 'asdasdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', NULL, ''),
@@ -174,7 +184,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `baranggay_event`
 --
 ALTER TABLE `baranggay_event`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hotspots`
