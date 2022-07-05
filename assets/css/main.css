@@ -6,10 +6,10 @@
     --light-color: #FFFFFF;
     --light-color-alt: #afb6cd;
     --primary-background-color: #D9D9D9;
-    --secondary-background-color: #685bb3;
+    --secondary-background-color: #4073AF;
     --hover-light-color: var(--light-color);
     --hover-dark-color: var(--primary-background-color);
-    --gradient-color: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+    --gradient-color: linear-gradient(115deg, #4fcf70, #fad648, #4073AF, #12bcfe, #44ce7b);
     --transparent-light-color: rgba(255, 255, 255, .05);
     --transparent-dark-color: rgba(0, 0, 0, .75);
     --font-family: 'Poppins', sans-serif;
@@ -32,7 +32,7 @@
     box-sizing: border-box;
 }
 
-html {
+/* html {
     font-size: 62.5%;
 }
 
@@ -48,7 +48,7 @@ body {
 
 body> :not(header):not(footer) {
     margin: 5em;
-}
+} */
 
 a {
     color: inherit;
@@ -120,6 +120,7 @@ body.light-theme {
     top: 0;
     left: 0;
     width: 100%;
+    height: 8%;
     z-index: 999;
 }
 
@@ -303,12 +304,16 @@ body.light-theme {
 /*for Forgot Password*/
 .box {
     background-color: var(--secondary-background-color);
+    position: absolute;
+    top: 4rem;
     padding: 2rem 4rem;
     border-radius: 15px;
     box-shadow: 2px 5px;
     text-align: center;
     width: 50%;
 }
+
+
 
 .adminbox {
     background-color: var(--secondary-background-color);
@@ -317,6 +322,127 @@ body.light-theme {
     box-shadow: 2px 5px;
     text-align: center;
     width: 35%;
+    position: absolute;
+    top: 100px;
+}
+
+.adminbox2 {
+    background-color: var(--secondary-background-color);
+    padding: 2rem 4rem;
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    top: 78px;
+
+}
+
+.rounded-circle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+
+
+
+.patientbox {
+    background-color: var(--secondary-background-color);
+    padding: 2rem 4rem;
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+    width: 55%;
+    position: absolute;
+    top: 200px;
+
+}
+
+.castoria-box {
+    background-color: var(--secondary-background-color);
+    padding: 2rem 4rem;
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 180px;
+
+}
+
+/* Profile v2 */
+
+.profile {
+    max-width: 140rem;
+    width: 85%;
+    min-height: 100%;
+    margin: 0 auto;
+    margin-top: 3em;
+    padding: 0 10rem;
+    justify-content: center;
+    align-items: center;
+    display: flexbox;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+.cover-photo-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    background-color: white;
+    border-bottom: 1px solid var(--transparent-light-color);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 2px 5px;
+    height: 17em;
+    object-fit: contain;
+    margin-top: 130px;
+}
+
+.cover-photo {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 100%;
+    width: 100%;
+    top: 200px;
+
+}
+
+.about {
+    background-color: var(--secondary-background-color);
+    border-radius: 15px;
+    box-shadow: 2px 5px;
+    text-align: center;
+    height: 100px;
+    width: 25%;
+    height: 25%;
+    top: 475px;
+    left: 290px;
+    position: absolute;
+}
+
+.hopiumbox {
+    background-color: var(--secondary-background-color);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 2px 5px;
+    text-align: left;
+    width: 450px;
+    height: 500px;
+    margin-top: 200px;
+    margin-left: 300px;
 }
 
 
@@ -587,6 +713,21 @@ body.light-theme {
     box-shadow: 2px 5px;
 }
 
+.trending-profile-img-box {
+    display: flex;
+    flex-direction: column;
+    height: 10em;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    margin: -2em 0 0 0;
+    width: 100%;
+    object-fit: contain;
+
+}
+
+
+
 .trending-news-box:last-of-type {
     border-bottom: none;
 }
@@ -622,6 +763,11 @@ body.light-theme {
 .trending-news-box:hover .article-title {
     color: var(--light-color-alt);
 }
+
+
+
+
+
 
 /* Quick read */
 .section-title {

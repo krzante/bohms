@@ -8,6 +8,7 @@
         <!--Bootstrap 5 elements link-->
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
         <!-- Remix icons -->
@@ -16,14 +17,16 @@
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/swiper-bundle.min.css')?>" />
         <!-- Custom styles -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
+        <!-- Google Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <!-- Header -->
     <header class="header" id="header">
 
-        <nav class="navbar container">
+        <nav class="navbar container ">
            
-            <a href="<?php echo base_url('dashboard')?>">              
+            <a href="<?php echo base_url('home')?>">              
                 <h2 class="logo">BOHMS</h2>
             </a>
 
@@ -34,9 +37,19 @@
                     <i class="ri-close-line close-menu-icon"></i>
                 </button>
 
-                <a href="#" class="list-link screen-sm-hidden">Records</a>
-                <a href="#" class="list-link screen-sm-hidden">Create Event</a>
-                <a href="#" class="list-link screen-sm-hidden">Profile</a>
+                <?php $user = $this->session->userdata('user');
+                if(isset($user) && $user!=null):?>
+                
+                <a href="<?php echo base_url('profile'); ?>" class="list-link screen-sm-hidden">Profile</a>
+                <a href="<?php echo base_url('patient_records'); ?>" class="list-link screen-sm-hidden">Records</a>
+                <a href="<?php echo base_url('create_patient_record')?>" class="list-link screen-sm-hidden">Create Patient Record</a>
+
+                    <a href="<?php echo base_url('logouts/logout'); ?>" class="list-link screen-sm-hidden">Logout</a>
+
+                <?php else:?>
+                    <a href="<?php echo base_url('admin'); ?>" class="list-link screen-sm-hidden">Login</a>
+
+                <?php endif; ?>
 
             </div>
 

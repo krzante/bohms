@@ -19,24 +19,28 @@
 </head>
 <body>  
     <div class="form bg ">
-        <div class="adminbox ">
+
+        <form method="post" class="adminbox col-8 mt-5" action="<?php echo base_url('logins/login'); ?>">
             <div class="mb-3">
                <h1><b>BOHMS Admin Login<b></h1>
                <img src="<?php echo base_url('/assets/images/Bohmsv1.png')?>" width="100" height="100"> 
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Username" name="name">
+                    <input type="text" class="form-control" placeholder="Enter Username" name="name" required>
             </div>
-            
-            <div class="mb-3 input-group">
-                <input type="text" class="form-control" placeholder="Password" name="description">
+
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
             </div>
+
+            <?php echo validation_errors(); ?>
             
             <div class="mb-3">
-                <button type="submit" class="btn btn-login" name="Create" >Log In</button>
+                <button type="submit" class="btn btn-login" name="Login" >Log In</button>
                 <img src="<?php echo base_url('/assets/images/create_event.png')?>" width="155" height="155" >
             </div>
 
-        </div>
+        </form>
+
     </div>
