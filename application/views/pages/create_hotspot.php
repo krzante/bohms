@@ -10,22 +10,22 @@
             
             <!-- Name -->
             <div class="mb-3">
-                <input required type="text" class="form-control" placeholder="Disease Name" name="hotspot-name">
+                <input required type="text" class="form-control" placeholder="Disease Name" name="hotspot-name" autocomplete="off">
             </div>
             
             <!-- Description -->
             <div class="mb-3 input-group">
-                <input required type="text" class="p-5 form-control" placeholder="Description" name="hotspot-description">
+                <input required type="text" class="p-5 form-control" placeholder="Description" name="hotspot-description" autocomplete="off">
             </div>
 
             <!-- Infected -->
             <div class="mb-3 input-group">
-                <input required type="number" class="form-control" name="hotspot-infected" id="hotspot-infected" placeholder="Number of Infected" min="0" step="1" pattern="^\d+(?:\.\d{1,2})?$">
+                <input required type="number" class="form-control" name="hotspot-infected" id="hotspot-infected" placeholder="Number of Infected" min="0" step="1" pattern="^\d+(?:\.\d{1,2})?$" autocomplete="off">
             </div>
 
             <!-- Radius -->
             <div class="mb-3 input-group">
-                <input required type="number" class="form-control" name="hotspot-radius" id="hotspot-radius" placeholder="Radius (Min 50, Max 250 meters)" min="50" max="250" step="0.01" pattern="^\d+(?:\.\d{1,2})?$">
+                <input required type="number" class="form-control" name="hotspot-radius" id="hotspot-radius" placeholder="Radius (Min 50, Max 250 meters)" min="50" max="250" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" autocomplete="off">
             </div>
 
             <!-- Color  -->

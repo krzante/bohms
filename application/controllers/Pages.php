@@ -12,8 +12,17 @@
             $data['title'] = 'Latest Events';
             $data['baranggay_event'] = $this -> home_model -> get_events();
 
+            
             if($this->_check_required_login($page)){
+                $page = 'home';
+            }
+            else{
                 $data['patient_records'] = $this -> patient_model -> get_patientrecords();
+                if(isset($_SESSION['user'])){
+                    if($page == 'signup' || $page == 'admin'){
+                        redirect('home');
+                    }
+                }
             }
             
 
@@ -37,8 +46,27 @@
                 'patient_records',
             );
 
+            // echo in_array($page_arg, $login_required_pages); exit;
+
             // Check if the user is logged in and if the page requires a login
-            if(in_array($page_arg, $login_required_pages) && isset($_SESSION['user'])){
+            if(in_array($page_arg, $login_required_pages) && !isset($_SESSION['user'])){
+                // echo"TRUE"; exit;
+                return TRUE;
+            }
+            else{
+                // echo"FAL:SE"; exit;
+                return FALSE;
+            }
+        }
+
+
+        private function _not_accessable_when_logged($page_arg){
+            $required_pages = array(
+                'signup',
+            );
+
+            // Check if the user is logged in and if the page requires a login
+            if(in_array($page_arg, $required_pages) && isset($_SESSION['user'])){
                 return TRUE;
             }
             else{

@@ -15,7 +15,7 @@
 <body>
 <nav>
   <ul>
-  <li><a href="<?php echo base_url('profilepage'); ?>">Account</a></li>
+  <li><a href="<?php echo base_url('profile'); ?>">Account</a></li>
   <li><a href="<?php echo base_url('patient_records'); ?>" class="list-link screen-sm-hidden">Patient Records</a></li>
   </ul>
 </nav>

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
 </head>
 <body>  
-    <form method="post" class="form bg mt-5" action="<?php echo base_url('Homes/edit_acc'); ?>">
+    <form method="post" class="form bg mt-5" action="<?php echo base_url('edit/account'); ?>">
         <div class="adminbox ">
             <div class="mb-3">
             <h2 style="text-align:center"><b>BOHMS Account Edit<b><h2>

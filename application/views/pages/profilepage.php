@@ -19,15 +19,15 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
 </head>
 
-<body style="overflow-y:hidden">
+<body>
 <nav>
   <ul>
-  <li><a href="<?php echo base_url('profilepage'); ?>">Account</a></li>
+  <li><a href="<?php echo base_url('profile'); ?>">Account</a></li>
   <li><a href="<?php echo base_url('patient_records'); ?>" class="list-link screen-sm-hidden">Patient Records</a></li>
   </ul>
 </nav>
 
-<div class = "profile pt-3">
+<div class = "profile pt-3" >
         <div class="m-3 cover-photo-container">
                 <img src="<?php echo base_url('assets/images/defaultcover.png');?>" class= "cover-photo" >
         </div>
@@ -41,7 +41,7 @@
                 <h3><span><b>Name: <?php echo $user['name'];?></b></span><h3>
                 <h3><span><b>Position: <?php echo $user['Position'];?></b></span><h3>
                 <h3><span><b>Birthdate: <?php echo $user['Birthdate'];?></b></span><h3>
-                <h3><span><b><a href="<?php echo base_url('Homes/edit_acc'); ?>" class="list-link screen-sm-hidden mb-5" style="margin-left:10rem; color: white; background:#4073AF; border-radius: 15px; width:6rem;">Edit</a></b></span><h3>
+                <h3><span><b><a href="<?php echo base_url('edit/account'); ?>" class="list-link screen-sm-hidden mb-5" style="margin-left:10rem; color: white; background:#4073AF; border-radius: 15px; width:6rem;">Edit</a></b></span><h3>
             </div>
         </div>
 
@@ -65,11 +65,11 @@
                 </div>
                 </ul>
         </div>
-<!-- </div> -->
+</div>
 
 </body>
 
-<style>
+<!-- <style>
   .announcements {
 position: relative;
 width:auto;
@@ -79,5 +79,5 @@ overflow-y: hidden;
 .li{
 display: inline-block;
 }
-  </style>
+  </style> -->
 

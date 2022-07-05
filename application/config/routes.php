@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// $route['signup'] = 
+
 // Event routes
 $route['create-event/(:any)/(:any)'] = 'create_events/view_create_event/$1/$2';
 $route['create/(:any)/(:any)'] = 'create_events/create/$1/$2';
@@ -12,7 +14,10 @@ $route['edit-hotspot/(:any)'] = 'hotspots/edit_hotspot_view/$1';
 $route['hotspot/update/(:any)'] = 'hotspots/update/$1';
 $route['delete-hotspot/(:any)'] = 'hotspots/delete/$1';
 
+// Profile Routes
 $route['profile'] = 'Homes/profile/';
+$route['edit/account'] = 'Homes/edit_acc';
+
 $route['patient_records'] = 'patient_records/index';
 $route['default_controller'] = 'pages/view';
 $route['admindashboard'] = 'Pages/admindashboard';

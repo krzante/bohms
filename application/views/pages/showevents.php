@@ -21,7 +21,7 @@
 
     <form method="POST" class="form bg mt-5" action="<?php echo base_url('create_events/delete/'.$baranggay_event[0]['id'])?>">
         <div class="box mt-5">
-            <div class="mb-3">
+            <div class="mb-3 text-light">
                 <h2><b>Baranggay Event<b></h2>
                 <ul>
                     <li><span><?php echo $baranggay_event[0]['event_name'];?></span></li>
