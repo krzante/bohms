@@ -32,13 +32,20 @@ class Create_Events extends CI_Controller{
         // if(isset($user) && $user!=null){
         //     redirect('/home');
         // }
-        $data['lat'] = $lat_arg;
-        $data['lng'] = $lng_arg;
 
+        if(isset($_SESSION['user'])){
+            $data['lat'] = $lat_arg;
+            $data['lng'] = $lng_arg;
+    
+            
+            $this->load->view('templates/header');
+            $this->load->view('pages/create_event', $data);
+            $this->load->view('templates/footer');
+        }
+        else{
+            redirect('home');
+        }
         
-		$this->load->view('templates/header');
-        $this->load->view('pages/create_event', $data);
-        $this->load->view('templates/footer');
 	}
 	
     /**

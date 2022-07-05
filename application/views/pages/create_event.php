@@ -9,15 +9,15 @@
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Event Name" name="event_name">
+                <input type="text" class="form-control" placeholder="Event Name" name="event_name" autocomplete="off">
             </div>
             
             <div class="mb-3 input-group">
-                <input type="text" class="p-5 form-control" placeholder="Event Description" name="event_description">
+                <input type="text" class="p-5 form-control" placeholder="Event Description" name="event_description" autocomplete="off">
             </div>
 
             <div class="mb-3 input-group">
-                <input type="datetime-local" class="form-control" placeholder="event_date" name="event_date">
+                <input type="datetime-local" class="form-control" placeholder="event_date" name="event_date" autocomplete="off">
             </div>
 
             <!-- <div class="mb-3 input-group">
